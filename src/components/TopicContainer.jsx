@@ -6,7 +6,14 @@ class TopicContainer extends React.Component {
   state = { topicArticles: [], isLoaded: false };
 
   componentDidMount = () => {
+    console.log(this.props.slug);
     this.fetchTopicArticles(this.props.slug);
+  };
+
+  componentDidUpdate = (oldProps, oldState) => {
+    if (oldProps.slug !== this.props.slug) {
+      this.fetchTopicArticles(this.props.slug);
+    }
   };
 
   fetchTopicArticles = slug => {
@@ -19,6 +26,7 @@ class TopicContainer extends React.Component {
         this.setState({ topicArticles: data.articles, isLoaded: true });
       });
   };
+  // rerender with... new slug from
   render() {
     return (
       <div className="TopicContainer">
