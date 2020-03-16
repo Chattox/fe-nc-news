@@ -10,6 +10,8 @@ const FullArticle = props => {
     created_at,
     comment_count
   } = props.article;
+
+  const date = new Date(created_at).toLocaleString();
   return (
     <div className="FullArticle">
       <h1>{title}</h1>
@@ -17,7 +19,9 @@ const FullArticle = props => {
         <i>Written by {author}</i>
       </h3>
       <h5>
-        <i>in {topic}</i>
+        <i>
+          in {topic}, posted on {date}
+        </i>
       </h5>
       <br />
       <p>{body}</p>
