@@ -83,3 +83,9 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.FullArticle {
+  margin-left: 10px;
+  margin-right: 50px;
+  text-align: left;
+}

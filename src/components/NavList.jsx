@@ -2,13 +2,11 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 const NavList = props => {
-  console.log(props);
   return (
     <div className="NavList">
       <p>Topics:</p>
       <ul>
         {props.topics.map(topic => {
-          console.log(topic);
           return (
             <Link
               key={topic.slug}

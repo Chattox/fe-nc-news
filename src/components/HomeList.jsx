@@ -3,7 +3,6 @@ import { Link } from '@reach/router';
 import ArticleCard from './ArticleCard';
 
 const HomeList = props => {
-  // console.log(props);
   return (
     <div className="HomeList">
       <ul>

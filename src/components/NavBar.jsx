@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from '@reach/router';
 import NavList from './NavList';
 
 class NavBar extends React.Component {
@@ -14,7 +13,6 @@ class NavBar extends React.Component {
     axios
       .get('https://chattox-nc-news.herokuapp.com/api/topics')
       .then(({ data }) => {
-        // console.log(data);
         this.setState({ topics: data, isLoaded: true });
       });
   };

@@ -2,7 +2,6 @@ import React from 'react';
 
 const ArticleCard = props => {
   const {
-    article_id,
     title,
     votes,
     topic,
@@ -12,7 +11,6 @@ const ArticleCard = props => {
   } = props.article;
 
   const date = new Date(created_at).toLocaleString();
-  // console.log(date.toLocaleString());
 
   return (
     <li className="ArticleCard">

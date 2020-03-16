@@ -21,7 +21,6 @@ class Home extends React.Component {
         }
       })
       .then(({ data }) => {
-        // console.log(data);
         this.setState({ topArticles: data, isLoaded: true });
       });
   };
