@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from '@reach/router';
+import ArticleCard from './ArticleCard';
 
 const HomeList = props => {
-  console.log(props);
+  // console.log(props);
   return (
-    <div>
+    <div className="HomeList">
       <ul>
         {props.topArticles.map(article => {
           return (
-            <li key={article.article_id}>
-              Title: {article.title} Created: {article.created_at}
-            </li>
+            <Link
+              key={article.article_id}
+              to={`/articles/${article.article_id}`}
+            >
+              <ArticleCard article={article} />
+            </Link>
           );
         })}
       </ul>

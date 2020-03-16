@@ -1,19 +1,35 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from '@reach/router';
+import NavList from './NavList';
 
-const NavBar = () => {
-  return (
-    <nav className="NavBar">
-      <ul>
-        <li>
-          <Link to="/topic1">Topic 1</Link>
-        </li>
-        <li>
-          <Link to="/topic2">Topic 2</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-};
+class NavBar extends React.Component {
+  state = { topics: [], isLoaded: false };
+
+  componentDidMount = () => {
+    this.fetchTopics();
+  };
+
+  fetchTopics = () => {
+    axios
+      .get('https://chattox-nc-news.herokuapp.com/api/topics')
+      .then(({ data }) => {
+        // console.log(data);
+        this.setState({ topics: data, isLoaded: true });
+      });
+  };
+
+  render() {
+    return (
+      <nav className="NavBar">
+        {this.state.isLoaded ? (
+          <NavList topics={this.state.topics.topics} />
+        ) : (
+          <p>Loading...</p>
+        )}
+      </nav>
+    );
+  }
+}
 
 export default NavBar;

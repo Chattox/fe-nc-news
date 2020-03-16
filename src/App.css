@@ -7,15 +7,18 @@
 
 .App {
   display: grid;
-  grid-template-columns: 10% auto;
+  grid-template-columns: 80px auto;
   grid-template-rows: 80px auto;
   grid-template-areas:
     'Header Header'
     'NavBar main-body';
-  height: 100vh;
-  width: 100vw;
   text-align: center;
   color: #dbdddf;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .Header {
@@ -23,18 +26,9 @@
   border: 2px solid #192734;
 }
 
-.Header a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .NavBar {
   grid-area: NavBar;
-  border: 2px solid #192734;
-}
-
-.NavBar a {
-  text-decoration: none;
+  border: 1px solid #192734;
 }
 
 .NavBar ul {
@@ -43,4 +37,49 @@
 
 .NavBar li {
   list-style-type: none;
+}
+
+.NavList li {
+  background-color: #4bc065;
+  font-weight: bold;
+  border-radius: 30px;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.HomeList {
+  height: 90vh;
+  overflow: auto;
+}
+
+.HomeList ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 2px;
+}
+
+.HomeList li {
+  margin: 10px 0;
+}
+
+.ArticleCard {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  background-color: #192734;
+}
+
+.art-card-upvotes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-card-main {
+  text-align: left;
+}
+
+.art-card-created-at {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

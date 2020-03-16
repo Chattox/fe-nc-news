@@ -21,14 +21,14 @@ class Home extends React.Component {
         }
       })
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         this.setState({ topArticles: data, isLoaded: true });
       });
   };
 
   render() {
     return (
-      <div>
+      <div className="Home">
         {this.state.isLoaded ? (
           <HomeList topArticles={this.state.topArticles.articles} />
         ) : (
