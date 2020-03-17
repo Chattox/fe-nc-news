@@ -124,3 +124,12 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.ArticleSort {
+  display: flex;
+  flex-direction: row;
+}
+
+.ArticleSort button {
+  margin-left: 5px;
+}
