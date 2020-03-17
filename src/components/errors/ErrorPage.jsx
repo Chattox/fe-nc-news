@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ErrorPage = props => {
-  console.log(props);
   if (props.status === 404) {
     return <p>Error 404 not found</p>;
   } else if (props.status === 400) {

@@ -31,7 +31,6 @@ class FullArticle extends React.Component {
   };
 
   render() {
-    console.log(this.state.comments);
     return (
       <div className="FullArticle">
         <h1>{this.title}</h1>

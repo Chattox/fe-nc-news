@@ -62,10 +62,7 @@ class Home extends React.Component {
   };
 
   changeSortBy = sortByQuery => {
-    this.setState({ sortBy: sortByQuery }, () => {
-      console.log('hello this works');
-      console.log(this.state.sortBy);
-    });
+    this.setState({ sortBy: sortByQuery });
   };
 
   toggleOrderBy = () => {

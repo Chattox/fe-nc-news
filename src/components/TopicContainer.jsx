@@ -7,7 +7,6 @@ class TopicContainer extends React.Component {
   state = { topicArticles: [], isLoaded: false, error: null };
 
   componentDidMount = () => {
-    console.log(this.props.slug);
     this.fetchTopicArticles(this.props.slug);
   };
 
@@ -23,7 +22,6 @@ class TopicContainer extends React.Component {
         params: { topic: slug }
       })
       .then(({ data }) => {
-        // console.log(data);
         this.setState({ topicArticles: data.articles, isLoaded: true });
       })
       .catch(err => {
