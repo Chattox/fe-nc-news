@@ -92,3 +92,35 @@ a {
   margin-right: 50px;
   text-align: left;
 }
+
+.CommentList ul {
+  list-style-type: none;
+  padding: 0;
+}
+.CommentList li {
+  margin: 10px 0;
+}
+
+.CommentCard {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  background-color: #192734;
+}
+
+.com-card-upvotes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5px;
+}
+
+.com-card-main {
+  text-align: left;
+}
+
+.com-card-created-at {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -8,19 +8,21 @@ import FullArticleContainer from './components/FullArticleContainer';
 import TopicContainer from './components/TopicContainer';
 import ErrorPage from './components/errors/ErrorPage';
 
-function App() {
-  return (
-    <main className="App">
-      <Header />
-      <NavBar />
-      <Router>
-        <Home path="/" />
-        <FullArticleContainer path="/articles/:article_id" />
-        <TopicContainer path="/topics/:slug" />
-        <ErrorPage status={404} default />
-      </Router>
-    </main>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <main className="App">
+        <Header />
+        <NavBar />
+        <Router>
+          <Home path="/" />
+          <FullArticleContainer path="/articles/:article_id" />
+          <TopicContainer path="/topics/:slug" />
+          <ErrorPage status={404} default />
+        </Router>
+      </main>
+    );
+  }
 }
 
 export default App;
