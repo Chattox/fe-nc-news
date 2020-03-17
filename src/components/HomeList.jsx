@@ -8,12 +8,11 @@ const HomeList = props => {
       <ul>
         {props.topArticles.map(article => {
           return (
-            <Link
+            <ArticleCard
               key={article.article_id}
-              to={`/articles/${article.article_id}`}
-            >
-              <ArticleCard article={article} />
-            </Link>
+              article={article}
+              upvote={props.upvote}
+            />
           );
         })}
       </ul>

@@ -22,3 +22,11 @@ function App() {
 }
 
 export default App;
+
+/* 
+  TO DO:
+  - Make sure article cards look good on mobile; prob media query
+  - User login stuff
+  - Updoots and comments
+  - Posting new articles
+*/
