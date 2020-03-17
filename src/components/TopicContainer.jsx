@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import TopicList from './TopicList';
+import ErrorPage from './errors/ErrorPage';
 
 class TopicContainer extends React.Component {
-  state = { topicArticles: [], isLoaded: false };
+  state = { topicArticles: [], isLoaded: false, error: null };
 
   componentDidMount = () => {
     console.log(this.props.slug);
@@ -24,19 +25,26 @@ class TopicContainer extends React.Component {
       .then(({ data }) => {
         // console.log(data);
         this.setState({ topicArticles: data.articles, isLoaded: true });
+      })
+      .catch(err => {
+        this.setState({ error: err.response.status });
       });
   };
   // rerender with... new slug from
   render() {
-    return (
-      <div className="TopicContainer">
-        {this.state.isLoaded ? (
-          <TopicList topicArticles={this.state.topicArticles} />
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-    );
+    if (this.state.error) {
+      return <ErrorPage status={this.state.error} />;
+    } else {
+      return (
+        <div className="TopicContainer">
+          {this.state.isLoaded ? (
+            <TopicList topicArticles={this.state.topicArticles} />
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      );
+    }
   }
 }
 
