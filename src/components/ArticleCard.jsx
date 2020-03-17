@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import axios from 'axios';
 
 class ArticleCard extends React.Component {
   state = {

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import FullArticleContainer from './components/FullArticleContainer';
 import TopicContainer from './components/TopicContainer';
+import ErrorPage from './components/errors/ErrorPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Home path="/" />
         <FullArticleContainer path="/articles/:article_id" />
         <TopicContainer path="/topics/:slug" />
+        <ErrorPage status={404} default />
       </Router>
     </main>
   );

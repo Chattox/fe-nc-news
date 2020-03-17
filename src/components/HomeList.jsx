@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from '@reach/router';
 import ArticleCard from './ArticleCard';
 
 const HomeList = props => {
