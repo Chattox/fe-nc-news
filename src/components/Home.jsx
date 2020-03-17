@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import HomeList from './HomeList';
+import ArticleSort from './ArticleSort';
 
 class Home extends React.Component {
   state = {
     topArticles: [],
     isLoaded: false,
-    upvotedArticle: {}
+    upvotedArticle: {},
+    sortBy: 'votes',
+    orderBy: 'desc'
   };
 
   componentDidMount = () => {
@@ -14,13 +17,21 @@ class Home extends React.Component {
   };
 
   componentDidUpdate(oldProps, oldState) {
-    console.log('Old state');
-    console.log(oldState.upvotedArticle);
-    console.log('New state');
-    console.log(this.state.upvotedArticle);
+    // console.log('Old state');
+    // console.log(oldState.upvotedArticle);
+    // console.log('New state');
+    // console.log(this.state.upvotedArticle);
 
     if (oldState.upvotedArticle !== this.state.upvotedArticle) {
-      console.log('Difference found, refetching articles');
+      // console.log('Difference found, refetching articles');
+      this.fetchTopArticles();
+    }
+
+    if (oldState.sortBy !== this.state.sortBy) {
+      this.fetchTopArticles();
+    }
+
+    if (oldState.orderBy !== this.state.orderBy) {
       this.fetchTopArticles();
     }
   }
@@ -29,8 +40,8 @@ class Home extends React.Component {
     axios
       .get('https://chattox-nc-news.herokuapp.com/api/articles', {
         params: {
-          sort_by: 'votes',
-          order: 'desc'
+          sort_by: this.state.sortBy,
+          order: this.state.orderBy
         }
       })
       .then(({ data }) => {
@@ -50,10 +61,30 @@ class Home extends React.Component {
       });
   };
 
+  changeSortBy = sortByQuery => {
+    this.setState({ sortBy: sortByQuery }, () => {
+      console.log('hello this works');
+      console.log(this.state.sortBy);
+    });
+  };
+
+  toggleOrderBy = () => {
+    if (this.state.orderBy === 'asc') {
+      this.setState({ orderBy: 'desc' });
+    } else {
+      this.setState({ orderBy: 'asc' });
+    }
+  };
+
   render() {
     // console.log(this.state.upvotedArticle);
     return (
       <div className="Home">
+        <ArticleSort
+          changeSortBy={this.changeSortBy}
+          toggleOrderBy={this.toggleOrderBy}
+          orderBy={this.state.orderBy}
+        />
         {this.state.isLoaded ? (
           <HomeList
             topArticles={this.state.topArticles.articles}
