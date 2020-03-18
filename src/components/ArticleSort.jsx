@@ -16,10 +16,12 @@ class ArticleSort extends Component {
         <form>
           <label>
             Sort by:
-            <select defaultValue="default" onChange={this.handleInput}>
-              <option value="default" disabled>
-                Sort by...
-              </option>
+            <select
+              defaultValue="votes"
+              onChange={() => {
+                this.handleInput(this.event.value);
+              }}
+            >
               <option value="created_at">Date</option>
               <option value="comment_count">Comment count</option>
               <option value="votes">Votes</option>

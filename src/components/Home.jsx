@@ -61,10 +61,6 @@ class Home extends React.Component {
     }
   };
 
-  increaseVotes = article => {
-    this.setState({ upvoted: article });
-  };
-
   render() {
     // console.log(this.state.upvotedArticle);
     return (
@@ -75,10 +71,7 @@ class Home extends React.Component {
           orderBy={this.state.orderBy}
         />
         {this.state.isLoaded ? (
-          <HomeList
-            topArticles={this.state.topArticles.articles}
-            increaseVotes={this.increaseVotes}
-          />
+          <HomeList topArticles={this.state.topArticles.articles} />
         ) : (
           <p>Loading...</p>
         )}

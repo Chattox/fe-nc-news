@@ -28,7 +28,10 @@ class FullArticleContainer extends React.Component {
       return (
         <div className="FullArticleContainer">
           {this.state.isLoaded ? (
-            <FullArticle article={this.state.article} />
+            <FullArticle
+              article={this.state.article}
+              userLoggedIn={this.props.userLoggedIn}
+            />
           ) : (
             <p>Loading...</p>
           )}

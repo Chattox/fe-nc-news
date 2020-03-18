@@ -7,13 +7,7 @@ class HomeList extends React.Component {
       <div className="HomeList">
         <ul>
           {this.props.topArticles.map(article => {
-            return (
-              <ArticleCard
-                key={article.article_id}
-                article={article}
-                increaseVotes={this.props.increaseVotes}
-              />
-            );
+            return <ArticleCard key={article.article_id} article={article} />;
           })}
         </ul>
       </div>

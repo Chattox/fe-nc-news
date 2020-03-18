@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import CommentList from './CommentList';
+import PostComment from './PostComment';
 
 class FullArticle extends React.Component {
   state = {
-    comments: []
+    comments: [],
+    newComment: {}
   };
   article_id = this.props.article.article_id;
   title = this.props.article.title;
@@ -20,6 +22,12 @@ class FullArticle extends React.Component {
     this.getComments(this.article_id);
   }
 
+  componentDidUpdate(oldProps, oldState) {
+    if (oldState.newComment !== this.state.newComment) {
+      this.getComments(this.article_id);
+    }
+  }
+
   getComments = article_id => {
     axios
       .get(
@@ -28,6 +36,11 @@ class FullArticle extends React.Component {
       .then(({ data }) => {
         this.setState({ comments: data.comments });
       });
+  };
+
+  postedComment = comment => {
+    console.log(comment);
+    this.setState({ newComment: comment });
   };
 
   render() {
@@ -49,6 +62,11 @@ class FullArticle extends React.Component {
             Upvotes: {this.votes} Comments: {this.comment_count}
           </i>
         </p>
+        <PostComment
+          user={this.props.userLoggedIn}
+          article_id={this.article_id}
+          postedComment={this.postedComment}
+        />
         <CommentList comments={this.state.comments} />
       </div>
     );

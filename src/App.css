@@ -10,7 +10,7 @@
   grid-template-columns: 80px auto;
   grid-template-rows: 80px auto;
   grid-template-areas:
-    'Header Header'
+    'top-bar top-bar'
     'NavBar main-body';
   text-align: center;
   color: #dbdddf;
@@ -22,9 +22,24 @@ a {
   color: inherit;
 }
 
+.top-bar {
+  grid-area: top-bar;
+  display: grid;
+  grid-template-columns: auto 80px;
+  grid-template-areas: 'Header LogIn';
+  border: 2px solid #192734;
+}
+
 .Header {
   grid-area: Header;
-  border: 2px solid #192734;
+}
+
+.LogIn {
+  grid-area: LogIn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
 }
 
 .NavBar {
@@ -152,6 +167,11 @@ a {
 
 .ArticleSort button {
   margin-left: 5px;
+}
+
+#comment-box {
+  resize: both;
+  overflow: auto;
 }
 
 @media only screen and (max-width: 865px) {
