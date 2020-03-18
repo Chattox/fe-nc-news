@@ -133,3 +133,29 @@ a {
 .ArticleSort button {
   margin-left: 5px;
 }
+
+@media only screen and (max-width: 865px) {
+  .ArticleCard {
+    grid-template-columns: auto;
+  }
+
+  .art-card-upvotes {
+    display: none;
+  }
+
+  .art-card-created-at {
+    display: none;
+  }
+
+  .CommentCard {
+    grid-template-columns: auto;
+  }
+
+  .com-card-upvotes {
+    display: none;
+  }
+
+  .com-card-created-at {
+    display: none;
+  }
+}
