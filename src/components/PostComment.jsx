@@ -26,6 +26,7 @@ class PostComment extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="PostComment">
         <p>Post a comment:</p>

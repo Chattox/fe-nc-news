@@ -65,7 +65,7 @@ class FullArticle extends React.Component {
         <PostComment
           user={this.props.userLoggedIn}
           article_id={this.article_id}
-          postedComment={this.postedComment}
+          postedComment={this.changeComment}
         />
         <CommentList
           comments={this.state.comments}

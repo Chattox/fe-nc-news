@@ -42,7 +42,5 @@ export default App;
 
 /* 
   TO DO:
-  - User login stuff
-  - Posting comments
-  - Deleting comments
+  - Fix logging in not updating all pages properly
 */
