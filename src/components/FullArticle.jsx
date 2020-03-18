@@ -38,7 +38,7 @@ class FullArticle extends React.Component {
       });
   };
 
-  postedComment = comment => {
+  changeComment = comment => {
     console.log(comment);
     this.setState({ newComment: comment });
   };
@@ -67,7 +67,11 @@ class FullArticle extends React.Component {
           article_id={this.article_id}
           postedComment={this.postedComment}
         />
-        <CommentList comments={this.state.comments} />
+        <CommentList
+          comments={this.state.comments}
+          user={this.props.userLoggedIn}
+          deletedComment={this.changeComment}
+        />
       </div>
     );
   }
