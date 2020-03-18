@@ -7,7 +7,7 @@ class Home extends React.Component {
   state = {
     topArticles: [],
     isLoaded: false,
-    upvotedArticle: {},
+    upvoted: {},
     sortBy: 'votes',
     orderBy: 'desc'
   };
@@ -18,12 +18,12 @@ class Home extends React.Component {
 
   componentDidUpdate(oldProps, oldState) {
     // console.log('Old state');
-    // console.log(oldState.upvotedArticle);
+    // console.log(oldState.upvoted);
     // console.log('New state');
-    // console.log(this.state.upvotedArticle);
+    // console.log(this.state.upvoted);
 
-    if (oldState.upvotedArticle !== this.state.upvotedArticle) {
-      // console.log('Difference found, refetching articles');
+    if (oldState.upvoted !== this.state.upvoted) {
+      console.log('Difference found, refetching articles');
       this.fetchTopArticles();
     }
 
@@ -49,18 +49,6 @@ class Home extends React.Component {
       });
   };
 
-  upvote = article_id => {
-    axios
-      .patch(
-        `https://chattox-nc-news.herokuapp.com/api/articles/${article_id}`,
-        { inc_votes: 1 }
-      )
-      .then(({ data }) => {
-        console.log('updoot');
-        this.setState({ upvotedArticle: data.article });
-      });
-  };
-
   changeSortBy = sortByQuery => {
     this.setState({ sortBy: sortByQuery });
   };
@@ -71,6 +59,10 @@ class Home extends React.Component {
     } else {
       this.setState({ orderBy: 'asc' });
     }
+  };
+
+  increaseVotes = article => {
+    this.setState({ upvoted: article });
   };
 
   render() {
@@ -85,7 +77,7 @@ class Home extends React.Component {
         {this.state.isLoaded ? (
           <HomeList
             topArticles={this.state.topArticles.articles}
-            upvote={this.upvote}
+            increaseVotes={this.increaseVotes}
           />
         ) : (
           <p>Loading...</p>

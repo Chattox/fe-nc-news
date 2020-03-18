@@ -63,6 +63,21 @@ a {
   margin: 10px 0;
 }
 
+.TopicList {
+  height: 90vh;
+  overflow: auto;
+}
+
+.TopicList ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 2px;
+}
+
+.TopicList li {
+  margin: 10px 0;
+}
+
 .ArticleCard {
   display: grid;
   grid-template-columns: 10% auto 10%;

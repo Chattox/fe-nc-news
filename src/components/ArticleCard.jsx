@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import Upvote from './Upvote';
 
 class ArticleCard extends React.Component {
   state = {
@@ -15,17 +16,20 @@ class ArticleCard extends React.Component {
   article_id = this.props.article.article_id;
   date = new Date(this.created_at).toLocaleString();
 
+  increaseVotes = () => {
+    this.votes++;
+    this.setState({ [this.state]: this.state });
+  };
+
   render() {
     return (
       <li className="ArticleCard">
         <section className="art-card-upvotes">
-          <button
-            onClick={() => {
-              this.props.upvote(this.article_id);
-            }}
-          >
-            Updoot
-          </button>
+          <Upvote
+            id={this.article_id}
+            type={'article'}
+            increaseVotes={this.increaseVotes}
+          />
           <p>
             Votes: {this.votes}
             <br />

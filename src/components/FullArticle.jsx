@@ -14,7 +14,7 @@ class FullArticle extends React.Component {
   author = this.props.article.author;
   created_at = this.props.article.created_at;
   comment_count = this.props.article.comment_count;
-  date = new Date(this.state.created_at).toLocaleString();
+  date = new Date(this.created_at).toLocaleString();
 
   componentDidMount() {
     this.getComments(this.article_id);

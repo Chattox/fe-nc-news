@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Router } from '@reach/router';
+import axios from 'axios';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Home from './components/Home';

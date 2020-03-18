@@ -19,7 +19,7 @@ class TopicContainer extends React.Component {
   fetchTopicArticles = slug => {
     axios
       .get('https://chattox-nc-news.herokuapp.com/api/articles', {
-        params: { topic: slug }
+        params: { topic: slug, sort_by: 'votes', order: 'desc' }
       })
       .then(({ data }) => {
         this.setState({ topicArticles: data.articles, isLoaded: true });
