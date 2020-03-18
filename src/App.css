@@ -119,7 +119,9 @@ a {
 .CommentCard {
   display: grid;
   grid-template-columns: 10% auto 10%;
+  grid-template-areas: 'com-card-upvotes com-card-main com-card-created-at';
   background-color: #192734;
+  padding: 10px;
 }
 
 .com-card-upvotes {
@@ -128,16 +130,19 @@ a {
   align-items: center;
   flex-direction: column;
   padding-top: 5px;
+  grid-area: com-card-upvotes;
 }
 
 .com-card-main {
   text-align: left;
+  grid-area: com-card-main;
 }
 
 .com-card-created-at {
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-area: com-card-created-at;
 }
 
 .ArticleSort {
@@ -164,10 +169,15 @@ a {
 
   .CommentCard {
     grid-template-columns: auto;
+    grid-template-rows: auto 10%;
+    grid-template-areas:
+      'com-card-main'
+      'com-card-upvotes';
+    padding: 10px;
   }
 
   .com-card-upvotes {
-    display: none;
+    /* display: none; */
   }
 
   .com-card-created-at {
