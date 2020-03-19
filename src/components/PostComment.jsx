@@ -42,6 +42,7 @@ class PostComment extends Component {
             cols="50"
             rows="5"
             onChange={this.handleInput}
+            required
           />
           <br />
           <button>Submit</button>
