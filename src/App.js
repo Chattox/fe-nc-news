@@ -42,6 +42,6 @@ export default App;
 
 /* 
   TO DO:
-  - Fix logging in not updating all pages properly
-  - Fix comment count not updating when posting/deleting
+  - Styling
+  - Cosmetic tweaks
 */

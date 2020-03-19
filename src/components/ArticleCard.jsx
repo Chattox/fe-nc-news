@@ -42,7 +42,11 @@ class ArticleCard extends React.Component {
               <strong>{this.title}</strong>
               <br />
               <i>
-                Posted by {this.author} in {this.topic}
+                Posted by {this.author} <br />
+                in{' '}
+                <Link to={`/topics/${this.topic}`}>
+                  <strong>{this.topic}</strong>
+                </Link>
               </i>
             </p>
           </section>
