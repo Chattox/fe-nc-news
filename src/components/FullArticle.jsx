@@ -38,9 +38,14 @@ class FullArticle extends React.Component {
       });
   };
 
-  changeComment = comment => {
-    console.log(comment);
-    this.setState({ newComment: comment });
+  changeComment = (comment, action) => {
+    if (action === 'post') {
+      this.comment_count++;
+      this.setState({ newComment: comment });
+    } else if (action === 'delete') {
+      this.comment_count--;
+      this.setState({ newComment: comment });
+    }
   };
 
   render() {

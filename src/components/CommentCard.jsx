@@ -23,7 +23,7 @@ class CommentCard extends React.Component {
           `https://chattox-nc-news.herokuapp.com/api/comments/${this.comment_id}`
         )
         .then(() => {
-          this.props.deletedComment(this.props.comment);
+          this.props.deletedComment(this.props.comment, 'delete');
         });
     } else {
       this.setState({ error: true });

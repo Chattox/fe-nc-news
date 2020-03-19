@@ -18,7 +18,7 @@ class PostComment extends Component {
           { username: this.state.user, body: this.state.comment }
         )
         .then(({ data }) => {
-          this.props.postedComment(data.comment);
+          this.props.postedComment(data.comment, 'post');
         });
     } else {
       this.setState({ error: true });
