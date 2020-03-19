@@ -18,8 +18,8 @@ class ArticleSort extends Component {
             Sort by:
             <select
               defaultValue="votes"
-              onChange={() => {
-                this.handleInput(this.event.value);
+              onChange={event => {
+                this.handleInput(event);
               }}
             >
               <option value="created_at">Date</option>
