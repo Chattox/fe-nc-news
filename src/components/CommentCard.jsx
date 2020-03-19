@@ -3,13 +3,19 @@ import Upvote from './Upvote';
 import axios from 'axios';
 
 class CommentCard extends React.Component {
-  state = { error: false };
+  state = { user: this.props.user, error: false };
   comment_id = this.props.comment.comment_id;
   author = this.props.comment.author;
   votes = this.props.comment.votes;
   created_at = this.props.comment.created_at;
   body = this.props.comment.body;
   date = new Date(this.created_at).toLocaleString();
+
+  componentDidUpdate() {
+    if (this.state.user !== this.props.user) {
+      this.setState({ user: this.props.user });
+    }
+  }
 
   increaseVotes = () => {
     this.votes++;
@@ -24,6 +30,7 @@ class CommentCard extends React.Component {
         )
         .then(() => {
           this.props.deletedComment(this.props.comment, 'delete');
+          this.setState({ error: false });
         });
     } else {
       this.setState({ error: true });

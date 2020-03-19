@@ -17,13 +17,7 @@ class Home extends React.Component {
   };
 
   componentDidUpdate(oldProps, oldState) {
-    // console.log('Old state');
-    // console.log(oldState.upvoted);
-    // console.log('New state');
-    // console.log(this.state.upvoted);
-
     if (oldState.upvoted !== this.state.upvoted) {
-      console.log('Difference found, refetching articles');
       this.fetchTopArticles();
     }
 
@@ -62,7 +56,6 @@ class Home extends React.Component {
   };
 
   render() {
-    // console.log(this.state.upvotedArticle);
     return (
       <div className="Home">
         <ArticleSort

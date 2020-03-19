@@ -4,8 +4,13 @@ import axios from 'axios';
 class PostComment extends Component {
   state = { comment: '', user: this.props.user, error: false };
 
+  componentDidUpdate() {
+    if (this.state.user !== this.props.user) {
+      this.setState({ user: this.props.user });
+    }
+  }
+
   handleInput = event => {
-    console.log(this.state.comment);
     this.setState({ comment: event.target.value });
   };
 
@@ -19,6 +24,7 @@ class PostComment extends Component {
         )
         .then(({ data }) => {
           this.props.postedComment(data.comment, 'post');
+          this.setState({ error: false });
         });
     } else {
       this.setState({ error: true });
@@ -26,7 +32,6 @@ class PostComment extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="PostComment">
         <p>Post a comment:</p>
