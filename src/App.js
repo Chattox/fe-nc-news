@@ -44,6 +44,5 @@ export default App;
   TO DO:
   - Styling
   - Cosmetic tweaks
-  - Put sort by on all topic list pages X
-  - Disable ability to post empty comment X
+  - Pagination
 */
